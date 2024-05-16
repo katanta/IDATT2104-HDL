@@ -1,0 +1,73 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x56a9404c95b0 .scope module, "testbench_multiply" "testbench_multiply" 2 1;
+ .timescale 0 0;
+v0x56a9404ddcc0_0 .var "a", 7 0;
+v0x56a9404ddd80_0 .var "b", 7 0;
+v0x56a9404dde50_0 .net "c", 15 0, L_0x56a9404de200;  1 drivers
+S_0x56a9404c9740 .scope module, "uut" "multiply" 2 6, 3 1 0, S_0x56a9404c95b0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 8 "a";
+    .port_info 1 /INPUT 8 "b";
+    .port_info 2 /OUTPUT 16 "c";
+v0x56a9404c9920_0 .net *"_ivl_0", 15 0, L_0x56a9404ddf50;  1 drivers
+L_0x7383cd66b018 .functor BUFT 1, C4<00000000>, C4<0>, C4<0>, C4<0>;
+v0x56a9404dd6d0_0 .net *"_ivl_3", 7 0, L_0x7383cd66b018;  1 drivers
+v0x56a9404dd7b0_0 .net *"_ivl_4", 15 0, L_0x56a9404de0c0;  1 drivers
+L_0x7383cd66b060 .functor BUFT 1, C4<00000000>, C4<0>, C4<0>, C4<0>;
+v0x56a9404dd870_0 .net *"_ivl_7", 7 0, L_0x7383cd66b060;  1 drivers
+v0x56a9404dd950_0 .net "a", 7 0, v0x56a9404ddcc0_0;  1 drivers
+v0x56a9404dda80_0 .net "b", 7 0, v0x56a9404ddd80_0;  1 drivers
+v0x56a9404ddb60_0 .net "c", 15 0, L_0x56a9404de200;  alias, 1 drivers
+L_0x56a9404ddf50 .concat [ 8 8 0 0], v0x56a9404ddcc0_0, L_0x7383cd66b018;
+L_0x56a9404de0c0 .concat [ 8 8 0 0], v0x56a9404ddd80_0, L_0x7383cd66b060;
+L_0x56a9404de200 .arith/mult 16, L_0x56a9404ddf50, L_0x56a9404de0c0;
+    .scope S_0x56a9404c95b0;
+T_0 ;
+    %pushi/vec4 3, 0, 8;
+    %store/vec4 v0x56a9404ddcc0_0, 0, 8;
+    %pushi/vec4 5, 0, 8;
+    %store/vec4 v0x56a9404ddd80_0, 0, 8;
+    %delay 10, 0;
+    %pushi/vec4 10, 0, 8;
+    %store/vec4 v0x56a9404ddcc0_0, 0, 8;
+    %pushi/vec4 2, 0, 8;
+    %store/vec4 v0x56a9404ddd80_0, 0, 8;
+    %delay 10, 0;
+    %pushi/vec4 255, 0, 8;
+    %store/vec4 v0x56a9404ddcc0_0, 0, 8;
+    %pushi/vec4 2, 0, 8;
+    %store/vec4 v0x56a9404ddd80_0, 0, 8;
+    %delay 10, 0;
+    %pushi/vec4 255, 0, 8;
+    %store/vec4 v0x56a9404ddcc0_0, 0, 8;
+    %pushi/vec4 255, 0, 8;
+    %store/vec4 v0x56a9404ddd80_0, 0, 8;
+    %delay 10, 0;
+    %vpi_call 2 26 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_0x56a9404c95b0;
+T_1 ;
+    %vpi_call 2 30 "$monitor", "At time %t, a = %b, b = %b, c = %b", $time, v0x56a9404ddcc0_0, v0x56a9404ddd80_0, v0x56a9404dde50_0 {0 0 0};
+    %end;
+    .thread T_1;
+    .scope S_0x56a9404c95b0;
+T_2 ;
+    %vpi_call 2 34 "$dumpfile", "dump_multiply.vcd" {0 0 0};
+    %vpi_call 2 35 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x56a9404c95b0 {0 0 0};
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "test/testbench_multiply.v";
+    "src/multiply.v";

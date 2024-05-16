@@ -1,0 +1,3 @@
+VCD info: dumpfile dump_dot_product.vcd opened for output.
+Dot product:    70
+test/testbench_dot_product.v:21: $finish called at 10 (1s)
