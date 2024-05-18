@@ -30,8 +30,11 @@ module testbench_multiply;
         $monitor("At time %t, a = %b, b = %b, c = %b", $time, a, b, c);
     end
 
+    /*
     initial begin
         $dumpfile("dump_multiply.vcd"); // Name of the VCD file
         $dumpvars(0, testbench_multiply); // Dump all variables in this module
     end
+    */
+
 endmodule

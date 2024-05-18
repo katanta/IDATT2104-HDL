@@ -35,7 +35,6 @@ module tb_elementwise_multiplication;
             $display("a[%0d] * b[%0d] = %0d * %0d = %0d", i, i, a[i], b[i], result[i]);
         end
 
-        // End the simulation
         $finish;
     end
 
