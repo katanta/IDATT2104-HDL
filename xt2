@@ -1,3 +1,10 @@
-VCD info: dumpfile dump_dot_product.vcd opened for output.
-Dot product:    70
-test/testbench_dot_product.v:21: $finish called at 10 (1s)
+Elementwise Multiplication Results:
+a[0] * b[0] = 1 * 8 = 8
+a[1] * b[1] = 2 * 7 = 14
+a[2] * b[2] = 3 * 6 = 18
+a[3] * b[3] = 4 * 5 = 20
+a[4] * b[4] = 5 * 4 = 20
+a[5] * b[5] = 6 * 3 = 18
+a[6] * b[6] = 7 * 2 = 14
+a[7] * b[7] = 8 * 1 = 8
+test/tb_elementwise_multiplication.v:39: $finish called at 10 (1s)
