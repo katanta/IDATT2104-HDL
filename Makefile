@@ -59,4 +59,4 @@ view_dot_product:
 	gtkwave dump_dot_product.vcd &
 
 clean:
-	rm -f simv_and_gate simv_multiply simv_dot_product simv_elementwise_multiplication simv_float8_multiplication simv_float16_multiplication simv_float32_multiplication *.vcd
+	rm -f simv_and_gate simv_multiplication simv_dot_product simv_elementwise_multiplication simv_float8_multiplication simv_float16_multiplication simv_float32_multiplication simv_parallel_elementwise_multiplication xt2 *.vcd
