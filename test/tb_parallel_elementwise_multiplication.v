@@ -1,51 +1,54 @@
-module tb_parallel_elementwise_multiplication;
+module tb_parellel_elementwise_multiplication;
 
-    // Parameters
+    // Parameter for vector size
     parameter N = 8;
-    parameter NUM_INSTANCES = 20;
 
     // Inputs
-    reg [N*NUM_INSTANCES-1:0] a;
-    reg [N*NUM_INSTANCES-1:0] b;
+    reg [N-1:0] a [0:N-1];
+    reg [N-1:0] b [0:N-1];
+    reg [N-1:0] c [0:N-1];
+    reg [N-1:0] d [0:N-1];
 
     // Outputs
-    wire [2*N*NUM_INSTANCES-1:0] result;
+    wire [2*N-1:0] result1 [0:N-1];
+    wire [2*N-1:0] result2 [0:N-1];
 
-    // Instantiate the module under test
-    parallel_elementwise_multiplication #(N, NUM_INSTANCES) uut (
-        .a(a),
-        .b(b),
-        .result(result)
+    // Instantiate the Unit Under Test (UUT)
+    parallel_elementwise_multiplication #(N) uut (
+            .a(a),
+            .b(b),
+            .c(c),
+            .d(d),
+            .result_ab(result1),
+            .result_cd(result2)
     );
 
-    // Test vectors
+    integer i;
+
     initial begin
         // Initialize inputs
-        a = 0;
-        b = 0;
+        for (i = 0; i < N; i = i + 1) begin
+            a[i] = i + 1; // a = {1, 2, 3, ..., N}
+            b[i] = (N - i); // b = {N, N-1, N-2, ..., 1}
+            c[i] = i + 2;
+            d[i] = i * 2;
+        end
 
-        // Apply test vectors
-        #10 a = {8'h01, 8'h02}; b = {8'h03, 8'h04}; // Test case 1
-        #10 a = {8'hFF, 8'hAA}; b = {8'h01, 8'h02}; // Test case 2
-        #10 a = {8'h10, 8'h20}; b = {8'h30, 8'h40}; // Test case 3
-        #10 a = {8'hAB, 8'hCD}; b = {8'hEF, 8'h12}; // Test case 4
+        // Wait for some time to let the result settle
+        #10;
 
-        // Wait for some time to observe the results
-        #10
+        // Display the results
+        $display("Elementwise Multiplication Results #1:");
+        for (i = 0; i < N; i = i + 1) begin
+            $display("a[%0d] * b[%0d] = %0d * %0d = %0d", i, i, a[i], b[i], result1[i]);
+        end
+
+        $display("Elementwise Multiplication Results #2:");
+        for (i = 0; i < N; i = i + 1) begin
+            $display("c[%0d] * d[%0d] = %0d * %0d = %0d", i, i, c[i], d[i], result2[i]);
+        end
+
         $finish;
     end
 
-    // Monitor the inputs and outputs
-    initial begin
-        $monitor("a = %h, b = %h, result = %h", a, b, result);
-    end
-
-endmodule
-
-module elementwise_multiplication #(parameter N = 8) (
-    input wire [N-1:0] a,
-    input wire [N-1:0] b,
-    output wire [2*N-1:0] result
-);
-    assign result = a * b;
 endmodule
