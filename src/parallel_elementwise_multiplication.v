@@ -1,16 +1,23 @@
-module parallel_elementwise_multiplication #(parameter N = 8, parameter NUM_INSTANCES = 2) (
-    input wire [N*NUM_INSTANCES-1:0] a,
-    input wire [N*NUM_INSTANCES-1:0] b,
-    output wire [2*N*NUM_INSTANCES-1:0] result
+`include "src/elementwise_multiplication.v"
+module parallel_elementwise_multiplication #(parameter N = 8) (
+    input wire [N-1:0] a [0:N-1],
+    input wire [N-1:0] b [0:N-1],
+    input wire [N-1:0] c [0:N-1],
+    input wire [N-1:0] d [0:N-1],
+    output wire [2*N-1:0] result_ab [0:N-1],
+    output wire [2*N-1:0] result_cd [0:N-1]
 );
-    genvar i;
-    generate
-        for (i = 0; i < NUM_INSTANCES; i = i + 1) begin : instances
-            elementwise_multiplication #(N) inst (
-                .a(a[(i+1)*N-1 -: N]),
-                .b(b[(i+1)*N-1 -: N]),
-                .result(result[(i+1)*2*N-1 -: 2*N])
-            );
-        end
-    endgenerate
+
+    elementwise_multiplication #(N) inst_ab (
+        .a(a),
+        .b(b),
+        .result(result_ab)
+    );
+
+    elementwise_multiplication #(N) inst_cd (
+        .a(c),
+        .b(d),
+        .result(result_cd)
+    );
+
 endmodule
