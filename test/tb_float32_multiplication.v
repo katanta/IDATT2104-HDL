@@ -42,6 +42,7 @@ module tb_float_mult;
     */
 
     initial begin
+        $display("Float32 Multiplication Results:");
         $monitor("Test: %b * %b = %b", a, b, result);
     end
 endmodule

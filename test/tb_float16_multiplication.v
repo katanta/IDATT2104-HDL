@@ -42,6 +42,7 @@ module tb_float16_multiplication;
     */
 
     initial begin
+        $display("Float16 Multiplication Results:");
         $monitor("Test: %b * %b = %b", a, b, result);
     end
 endmodule

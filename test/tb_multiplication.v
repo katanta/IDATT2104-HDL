@@ -3,7 +3,7 @@ module testbench_multiply;
     wire [15:0] c;
 
     // Instantiate the Unit Under Test (UUT)
-    multiply uut (
+    multiplication uut (
         .a(a),
         .b(b),
         .c(c)
@@ -27,14 +27,8 @@ module testbench_multiply;
     end
 
     initial begin
-        $monitor("At time %t, a = %b, b = %b, c = %b", $time, a, b, c);
+        $display("Multiplication Results:");
+        $monitor("a = %b, b = %b, c = %b", a, b, c);
     end
-
-    /*
-    initial begin
-        $dumpfile("dump_multiply.vcd"); // Name of the VCD file
-        $dumpvars(0, testbench_multiply); // Dump all variables in this module
-    end
-    */
 
 endmodule

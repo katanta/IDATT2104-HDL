@@ -20,7 +20,8 @@ module testbench;
     end
 
     initial begin
-        $monitor("At time %t, a = %b, b = %b, c = %b", $time, a, b, c);
+        $display("And Gate Results:");
+        $monitor("a = %b, b = %b, c = %b", a, b, c);
     end
 
     /*

@@ -44,6 +44,7 @@ module tb_float8_multiplication;
     */
 
     initial begin
+        $display("Float8 Multiplication Results:");
         $monitor("Test: %b * %b = %b", a, b, result);
     end
 endmodule

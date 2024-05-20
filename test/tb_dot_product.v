@@ -31,7 +31,6 @@ module tb_dot_product;
 
         // Display the results
         $display("Dot Product Result:");
-        $display("Sum of elementwise products:");
         for (i = 0; i < N; i = i + 1) begin
             $display("a[%0d] * b[%0d] = %0d * %0d = %0d", i, i, a[i], b[i], a[i] * b[i]);
         end
