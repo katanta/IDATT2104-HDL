@@ -26,7 +26,7 @@ TODO: Forklaring
 ### Dot produkt
 Simulasjonen for prikkprodukt kan du kjøre med: 
 ```
-sim_dot_product
+make sim_dot_product
 ```
 TODO: Forklaring
 
