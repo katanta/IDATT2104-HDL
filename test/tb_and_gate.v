@@ -24,11 +24,9 @@ module testbench;
         $monitor("a = %b, b = %b, c = %b", a, b, c);
     end
 
-    /*
     initial begin
         $dumpfile("dump_and_gate.vcd"); // Name of the VCD file
         $dumpvars(0, testbench); // Dump all variables in this module
     end
-    */
 
 endmodule
