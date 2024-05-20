@@ -1,17 +1,16 @@
-module top_module #(parameter N = 8, parameter NUM_INSTANCES = 2) (
-    input wire [N-1:0] a [0:NUM_INSTANCES-1][0:N-1],
-    input wire [N-1:0] b [0:NUM_INSTANCES-1][0:N-1],
-    output wire [2*N-1:0] result [0:NUM_INSTANCES-1][0:N-1]
+module parallel_elementwise_multiplication #(parameter N = 8, parameter NUM_INSTANCES = 2) (
+    input wire [N*NUM_INSTANCES-1:0] a,
+    input wire [N*NUM_INSTANCES-1:0] b,
+    output wire [2*N*NUM_INSTANCES-1:0] result
 );
     genvar i;
     generate
         for (i = 0; i < NUM_INSTANCES; i = i + 1) begin : instances
             elementwise_multiplication #(N) inst (
-                .a(a[i]),
-                .b(b[i]),
-                .result(result[i])
+                .a(a[(i+1)*N-1 -: N]),
+                .b(b[(i+1)*N-1 -: N]),
+                .result(result[(i+1)*2*N-1 -: 2*N])
             );
         end
     endgenerate
 endmodule
-
