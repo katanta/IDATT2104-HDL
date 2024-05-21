@@ -2,8 +2,7 @@
 
 module parallel_elementwise_multiplication_dynamic #(parameter N = 8, parameter M = 2) (
     // N: Bits in integer
-    // M: Number of modules to generate
-    //    Corresponds to the number of arrays to be multiplied together (must be even).
+    // M: Corresponds to the number of array pairs to be multiplied.
 
     input wire [N-1:0] a [0:M-1][0:N-1],
     input wire [N-1:0] b [0:M-1][0:N-1],

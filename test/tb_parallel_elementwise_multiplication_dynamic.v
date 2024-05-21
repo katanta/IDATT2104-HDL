@@ -2,9 +2,10 @@
 
 module tb_parallel_elementwise_multiplication_dynamic;
 
-    // Parameters
+    // N: Number of bits in each integer
     parameter N = 8;
-    parameter M = 2;
+    // M: Corresponds to the number of array pairs to be multiplied.
+    parameter M = 3;
 
     // Inputs
     reg [N-1:0] a [0:M-1][0:N-1];
