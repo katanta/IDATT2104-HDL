@@ -63,4 +63,4 @@ view_dot_product:
 	gtkwave dump_dot_product.vcd &
 
 clean:
-	rm -f *smv xt2 *.vcd
+	rm -f *smv xt2 *.vcd simv*
