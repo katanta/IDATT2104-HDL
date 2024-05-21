@@ -64,3 +64,11 @@ view_dot_product:
 
 clean:
 	rm -f *smv xt2 *.vcd simv*
+
+# format recipe requires verible to be installed and loaded as path variable
+format:
+	if ! type -P verible-verilog-format >/dev/null; then \
+		echo "verible-verilog-format was not found"; \
+		exit 1; \
+	fi
+	find . -type f \( -name "*.v" -o -name "*.sv" \) -exec verible-verilog-format --inplace --indentation_spaces 4 {} +
