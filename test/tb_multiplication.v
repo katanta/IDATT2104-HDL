@@ -1,14 +1,5 @@
-module testbench_multiply;
-    reg [7:0] a, b;
-    wire [15:0] c;
-
-    // Instantiate the Unit Under Test (UUT)
-    multiplication uut (
-        .a(a),
-        .b(b),
-        .c(c)
-    );
-
+module testbench_multiply; reg [7:0] a, b; wire [15:0] c; multiplication uut (.a(a), .b(b), .c(c));
+    
     initial begin
         // Initialize inputs
         a = 8'b00000011; // 3
@@ -25,10 +16,10 @@ module testbench_multiply;
         #10;
         $finish;
     end
-
+    
     initial begin
         $display("Multiplication Results:");
         $monitor("a = %b, b = %b, c = %b", a, b, c);
     end
-
+    
 endmodule
