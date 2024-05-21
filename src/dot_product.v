@@ -27,5 +27,4 @@ module dot_product #(
     end
 
     assign result = sum;
-
 endmodule
