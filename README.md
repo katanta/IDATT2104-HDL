@@ -24,7 +24,7 @@ make sim_parallel_elementwise_multiplication_dynamic
 Den sekvensielle algoritmen/modulen ganger sammen to vektorer med samme dimensjon. I simulasjonen er dette 2 vektorer med 8 elementer hver:
 
 Den parallelle algoritmen/modulen kan gange ```N```-dimensjonelle matriser sammen, hvor ```N``` er et naturlig tall. I eksempelet vårt er begge 2D-matriser. 
-Ettersom en matrise bare er en samling av vektorer, er matrisemultiplisering det samme som å parvis gange vektorer i matrisene sammen. 
+Ettersom en matrise bare er en samling av vektorer, er elementvis muliplikasjon av matriser det samme som å parvis gange vektorer i matrisene sammen. 
 Dermed kan vi instansiere ```N``` kopier av den sekvensielle modulen som kjører i parallell. Hver av dem sørger for å multiplisere et par med vektorer. 
 Den parallelle kjøringen sørger for at kjøretiden er uavhengig av ```N```.
 
