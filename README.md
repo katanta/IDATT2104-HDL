@@ -2,11 +2,11 @@
 
 ## ⚙ Setup
 Minstekravet for å få kjørt koden er: 
-- iverilog
-- yosys
+- [iverilog](https://github.com/steveicarus/iverilog/blob/master/README.md)
+- [yosys](https://github.com/YosysHQ/yosys/blob/main/README.md)
 
 For utviklingsverktøy som f.eks. formattering av kode trenger man i tillegg:
-- verible
+- [verible](https://chipsalliance.github.io/verible/)
 ## 🚀 Kjøring av programmet
 For å kjøre alle simulasjonene, kjør: 
 ```
