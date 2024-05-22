@@ -5,6 +5,8 @@ Minstekravet for å få kjørt koden er:
 - iverilog
 - yosys
 
+For utviklingsverktøy som f.eks. formattering av kode trenger man i tillegg:
+- verible
 ## 🚀 Kjøring av programmet
 For å kjøre alle simulasjonene, kjør: 
 ```
