@@ -21,11 +21,11 @@ Denne kjøres sekvensielt. For parallell kjøring, bruk:
 ```
 make sim_parallel_elementwise_multiplication_dynamic
 ```
-Den sekvensielle algoritmen/modulen ganger to vektorer sammen med samme dimensjon. I simulasjonen er dette 2 elementer med 8 elementer hver:
+Den sekvensielle algoritmen/modulen ganger to vektorer sammen med samme dimensjon. I simulasjonen er dette 2 vektorer med 8 elementer hver:
 
-Den parallelle algoritmen/modulen kan gange ```N```-dimensjonelle matriser sammen, hvor ```N``` er et heltall større enn 0. I eksempelet vårt er begge 2D-matriser. 
+Den parallelle algoritmen/modulen kan gange ```N```-dimensjonelle matriser sammen, hvor ```N``` er et naturlig tall. I eksempelet vårt er begge 2D-matriser. 
 Ettersom en matrise bare er en samling av vektorer, er matrisemultiplisering det samme som å parvis gange vektorer i matrisene sammen. 
-Dermed kan vi instansiere ```N``` kopier av den sekvensielle modulen som kjører i parallell. Hver av dem sørger for å multiplisere at par med vektorer. 
+Dermed kan vi instansiere ```N``` kopier av den sekvensielle modulen som kjører i parallell. Hver av dem sørger for å multiplisere et par med vektorer. 
 Den parallelle kjøringen sørger for at kjøretiden er uavhengig av ```N```.
 
 ### Dot produkt
@@ -42,7 +42,7 @@ Simulasjonen for flyttallsmultiplikasjon kan du kjøre med:
 make sim_float
 ```
 Denne kjører alle regnestykkene for flere typer flyttall (8, 16 og 32 bit) og brukes i de to modulene.
-Poenget med denne simulasjonene er for å demonstrere at vi har fått til å gange med flyttall, noe som kan 
+Poenget med denne simulasjone er å demonstrere at vi har fått til å gange med flyttall, noe som kan 
 implementeres i modulene over.
 
 Flyttall representeres i bits ved hjelp av IEEE 754-standarden. Denne standarden definerer hvordan vi representerer flyttall både i enkel- og dobbeltpresisjon.
