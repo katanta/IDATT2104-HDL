@@ -4,7 +4,7 @@ TEST_DIR = test
 
 all: sim
 
-sim: sim_and_gate sim_multiplication sim_dot_product sim_elementwise_multiplication sim_float8_multiplication sim_float16_multiplication sim_float32_multiplication sim_parallel_elementwise_multiplication sim_parallel_elementwise_multiplication_dynamic
+sim: sim_and_gate sim_multiplication sim_dot_product sim_elementwise_multiplication sim_float8_multiplication sim_float16_multiplication sim_float32_multiplication sim_parallel_elementwise_multiplication_dynamic
 
 sim_float: sim_float8_multiplication sim_float16_multiplication sim_float32_multiplication
 
@@ -42,11 +42,6 @@ sim_float32_multiplication:
 	@echo *****SIMULERER FLOAT32 MULTIPLIKASJON*****
 	iverilog $(VFLAGS) -o simv_float32_multiplication $(SRC_DIR)/float32_multiplication.v $(TEST_DIR)/tb_float32_multiplication.v
 	vvp $(VVPFLAGS) simv_float32_multiplication
-
-sim_parallel_elementwise_multiplication:
-	@echo *****SIMULERER ELEMENTVIS PARALELL MULTIPLIKASJON*****
-	iverilog $(VFLAGS) -o simv_parallel_elementwise_multiplication $(SRC_DIR)/parallel_elementwise_multiplication.v $(TEST_DIR)/tb_parallel_elementwise_multiplication.v
-	vvp $(VVPFLAGS) simv_parallel_elementwise_multiplication
 
 sim_parallel_elementwise_multiplication_dynamic:
 	@echo *****SIMULERER ELEMENTVIS PARALELL MULTIPLIKASJON*****
